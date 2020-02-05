@@ -1,5 +1,7 @@
 package org.launchcode.techjobs_oo;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Objects;
 
 public class Job {
@@ -48,6 +50,43 @@ public class Job {
         return Objects.hash(id);
     }
 
+    @Override
+    public String toString() {
+
+        String job = "ID: " + id + "\n" + "Name: " + name +"\n" + "Employer: " + employer + "\n" + "Location: " + location + "\n" + "Position Type: " + positionType + "\n" + "Core Competency: " + coreCompetency;
+
+        if (name.isBlank()) {
+
+            job = "ID: " + id + "\n" + "Name: " + "Data not available" +"\n" + "Employer: " + employer + "\n" + "Location: " + location + "\n" + "Position Type: " + positionType + "\n" + "Core Competency: " + coreCompetency;
+        }
+        else if (employer.getValue().isBlank()) {
+
+            job = "ID: " + id + "\n" + "Name: " + name +"\n" + "Employer: " + "Data not available" + "\n" + "Location: " + location + "\n" + "Position Type: " + positionType + "\n" + "Core Competency: " + coreCompetency;
+        }
+        else if (location.getValue().isBlank()) {
+
+            job = "ID: " + id + "\n" + "Name: " + name +"\n" + "Employer: " + employer + "\n" + "Location: " + "Data not available" + "\n" + "Position Type: " + positionType + "\n" + "Core Competency: " + coreCompetency;
+        }
+        else if (positionType.getValue().isBlank()) {
+
+            job = "ID: " + id + "\n" + "Name: " + name +"\n" + "Employer: " + employer + "\n" + "Location: " + location + "\n" + "Position Type: " + "Data not available" + "\n" + "Core Competency: " + coreCompetency;
+        }
+        else if (coreCompetency.getValue().isBlank()) {
+
+            job = "ID: " + id + "\n" + "Name: " + name +"\n" + "Employer: " + employer + "\n" + "Location: " + location + "\n" + "Position Type: " + positionType + "\n" + "Core Competency: " + "Data not available";
+        }
+
+        return "\n" + job + "\n";
+
+//        return "Job{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                ", employer=" + employer +
+//                ", location=" + location +
+//                ", positionType=" + positionType +
+//                ", coreCompetency=" + coreCompetency +
+//                '}';
+    }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
