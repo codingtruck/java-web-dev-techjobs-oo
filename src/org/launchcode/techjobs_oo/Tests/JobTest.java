@@ -77,6 +77,14 @@ public class JobTest {
     }
 
     @Test
+    public void testForGetMethods() {
+
+        Job test_job10 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        assertEquals(test_job10.getEmployer().getValue(), "ACME");
+    }
+
+    @Test
     public void testForEmptyField() {
 
         Job test_job8 = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));

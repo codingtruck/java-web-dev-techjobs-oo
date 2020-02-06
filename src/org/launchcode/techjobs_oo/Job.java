@@ -1,7 +1,5 @@
 package org.launchcode.techjobs_oo;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Objects;
 
 public class Job {
@@ -53,39 +51,44 @@ public class Job {
     @Override
     public String toString() {
 
-        String job = "ID: " + id + "\n" + "Name: " + name +"\n" + "Employer: " + employer + "\n" + "Location: " + location + "\n" + "Position Type: " + positionType + "\n" + "Core Competency: " + coreCompetency;
+//        String job = "ID: " + id + "\n" + "Name: " + name +"\n" + "Employer: " + employer + "\n" + "Location: " + location + "\n" + "Position Type: " + positionType + "\n" + "Core Competency: " + coreCompetency;
 
+        if ((name.isBlank() || name == null) && (employer.getValue().isBlank() || employer.getValue() == null) && (location.getValue().isBlank() || location.getValue() == null) && (positionType.getValue().isBlank() || positionType.getValue() == null) && (coreCompetency.getValue().isBlank() || coreCompetency.getValue() == null)) {
+            return "OOPS! This job does not seem to exist.";
+        }
         if (name.isBlank()) {
 
-            job = "ID: " + id + "\n" + "Name: " + "Data not available" +"\n" + "Employer: " + employer + "\n" + "Location: " + location + "\n" + "Position Type: " + positionType + "\n" + "Core Competency: " + coreCompetency;
+            name = "Data not available";
+
+//            job = "ID: " + id + "\n" + "Name: " + "Data not available" +"\n" + "Employer: " + employer + "\n" + "Location: " + location + "\n" + "Position Type: " + positionType + "\n" + "Core Competency: " + coreCompetency;
         }
-        else if (employer.getValue().isBlank()) {
+        if (employer.getValue().isBlank()) {
 
-            job = "ID: " + id + "\n" + "Name: " + name +"\n" + "Employer: " + "Data not available" + "\n" + "Location: " + location + "\n" + "Position Type: " + positionType + "\n" + "Core Competency: " + coreCompetency;
+            employer.setValue("Data not available");
+
+//            job = "ID: " + id + "\n" + "Name: " + name +"\n" + "Employer: " + "Data not available" + "\n" + "Location: " + location + "\n" + "Position Type: " + positionType + "\n" + "Core Competency: " + coreCompetency;
         }
-        else if (location.getValue().isBlank()) {
+        if (location.getValue().isBlank()) {
 
-            job = "ID: " + id + "\n" + "Name: " + name +"\n" + "Employer: " + employer + "\n" + "Location: " + "Data not available" + "\n" + "Position Type: " + positionType + "\n" + "Core Competency: " + coreCompetency;
+            location.setValue("Data not available");
+
+//            job = "ID: " + id + "\n" + "Name: " + name +"\n" + "Employer: " + employer + "\n" + "Location: " + "Data not available" + "\n" + "Position Type: " + positionType + "\n" + "Core Competency: " + coreCompetency;
         }
-        else if (positionType.getValue().isBlank()) {
+        if (positionType.getValue().isBlank()) {
 
-            job = "ID: " + id + "\n" + "Name: " + name +"\n" + "Employer: " + employer + "\n" + "Location: " + location + "\n" + "Position Type: " + "Data not available" + "\n" + "Core Competency: " + coreCompetency;
+            positionType.setValue("Data not available");
+
+//            job = "ID: " + id + "\n" + "Name: " + name +"\n" + "Employer: " + employer + "\n" + "Location: " + location + "\n" + "Position Type: " + "Data not available" + "\n" + "Core Competency: " + coreCompetency;
         }
-        else if (coreCompetency.getValue().isBlank()) {
+        if (coreCompetency.getValue().isBlank()) {
 
-            job = "ID: " + id + "\n" + "Name: " + name +"\n" + "Employer: " + employer + "\n" + "Location: " + location + "\n" + "Position Type: " + positionType + "\n" + "Core Competency: " + "Data not available";
+            coreCompetency.setValue("Data not available");
+
+//            job = "ID: " + id + "\n" + "Name: " + name +"\n" + "Employer: " + employer + "\n" + "Location: " + location + "\n" + "Position Type: " + positionType + "\n" + "Core Competency: " + "Data not available";
         }
 
-        return "\n" + job + "\n";
+        return "\n" + "ID: " + id + "\n" + "Name: " + name +"\n" + "Employer: " + employer + "\n" + "Location: " + location + "\n" + "Position Type: " + positionType + "\n" + "Core Competency: " + coreCompetency + "\n";
 
-//        return "Job{" +
-//                "id=" + id +
-//                ", name='" + name + '\'' +
-//                ", employer=" + employer +
-//                ", location=" + location +
-//                ", positionType=" + positionType +
-//                ", coreCompetency=" + coreCompetency +
-//                '}';
     }
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
